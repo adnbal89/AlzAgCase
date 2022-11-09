@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">AlzuraCaseStudy</string>
+    <string name="logout">Logout</string>
+    <string name="sort">Sort</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+</resources>

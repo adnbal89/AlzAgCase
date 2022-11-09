@@ -1,0 +1,9 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Base.Theme.AlzuraCaseStudy" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:actionButtonStyle">@style/ActionButton</item>
+    </style>
+
+    <style name="Theme.AlzuraCaseStudy" parent="Base.Theme.AlzuraCaseStudy"></style>
+
+</resources>
