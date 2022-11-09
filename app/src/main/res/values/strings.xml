@@ -1,7 +1,11 @@
 <resources>
     <string name="app_name">AlzuraCaseStudy</string>
+    <string name="please_login">"Please Login"</string>
     <string name="logout">Logout</string>
     <string name="sort">Sort</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="loginError">Login error, please try again.</string>
+    <string name="all_orders">All Orders</string>
 </resources>

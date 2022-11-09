@@ -4,4 +4,6 @@
     <string name="sort">Sort</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="all_orders">All Orders</string>
 </resources>
