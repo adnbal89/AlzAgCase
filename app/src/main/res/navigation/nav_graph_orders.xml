@@ -16,7 +16,7 @@
 
     <fragment
         android:id="@+id/order_detail"
-        android:name="com.adnanbal.alzuracasestudy.feature.main.detail.OrderDetailsFragment"
+        android:name="com.adnanbal.alzuracasestudy.feature.main.orders.detail.OrderDetailsFragment"
         tools:layout="@layout/fragment_order_detail">
         <argument
             android:name="order"

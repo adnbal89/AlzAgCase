@@ -13,6 +13,7 @@ class LoginRepository @Inject constructor(
     suspend fun doLogin(userName: String, password: String): String {
         val credentials = Base64.getEncoder().encode("$userName:$password".toByteArray())
         val token = alzuraApiService.getLoginToken("Basic ${String(credentials)}")
+
         return token.data.token.apply {
             localStorage.token = this
         }

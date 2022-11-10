@@ -37,39 +37,8 @@ class NavigationCreator constructor(private val activity: Activity) {
         return this
     }
 
-    fun addBundle(bundle: Bundle?): NavigationCreator {
-        intent!!.putExtras(bundle!!)
-        return this
-    }
-
-    fun forResult(requestCode: Int): NavigationCreator {
-        forResult = true
-        this.requestCode = requestCode
-        return this
-    }
-
     fun clearBackStack(): NavigationCreator {
         intent!!.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-        return this
-    }
-
-    fun singleTop(): NavigationCreator {
-        intent!!.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
-        return this
-    }
-
-    fun clearTop(): NavigationCreator {
-        intent!!.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-        return this
-    }
-
-    fun finishThis(): NavigationCreator {
-        finishThis = true
-        return this
-    }
-
-    fun withAnimation(@AnimRes enterAnim: Int, @AnimRes exitAnim: Int): NavigationCreator {
-        animationPair = Pair(enterAnim, exitAnim)
         return this
     }
 }

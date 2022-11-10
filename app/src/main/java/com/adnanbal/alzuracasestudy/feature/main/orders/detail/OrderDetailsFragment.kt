@@ -1,4 +1,4 @@
-package com.adnanbal.alzuracasestudy.feature.main.detail
+package com.adnanbal.alzuracasestudy.feature.main.orders.detail
 
 import android.os.Bundle
 import android.view.LayoutInflater
