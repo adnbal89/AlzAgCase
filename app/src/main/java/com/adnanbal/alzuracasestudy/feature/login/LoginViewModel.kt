@@ -1,5 +1,7 @@
 package com.adnanbal.alzuracasestudy.feature.login
 
+import android.content.Context
+import android.content.SharedPreferences
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.adnanbal.alzuracasestudy.api.model.login.LoginResponse
@@ -10,9 +12,11 @@ import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+
 @HiltViewModel
 class LoginViewModel @Inject constructor(
-    private val loginRepository: LoginRepository
+    private val loginRepository: LoginRepository,
+    private val applicationContext: Context
 ) : ViewModel() {
 
     //loginEvents to be sent to the activity for login status.
@@ -28,7 +32,6 @@ class LoginViewModel @Inject constructor(
                 _loginEventChannel.send(LoginStatus.Error)
             }
 
-            println("sonuc " + loginResult.data?.token)
             if (!loginResult.data?.token.isNullOrBlank()) {
                 _loginEventChannel.send(LoginStatus.Success(loginResult.data?.token))
             } else {
@@ -40,6 +43,21 @@ class LoginViewModel @Inject constructor(
     sealed class LoginStatus {
         data class Success(val tokenData: String?) : LoginStatus()
         object Error : LoginStatus()
+    }
+
+    fun saveAuthTokenToSharedPrefs(authToken: String?) {
+        val sharedPreferences: SharedPreferences =
+            applicationContext.getSharedPreferences("authTokenPref", Context.MODE_PRIVATE);
+        val editor = sharedPreferences.edit()
+        editor.putString("authToken", authToken).apply()
+    }
+
+    fun saveUserCredentialsToSharedPrefs(userName: String?, password: String?) {
+        val sharedPreferences: SharedPreferences =
+            applicationContext.getSharedPreferences("authTokenPref", Context.MODE_PRIVATE);
+        val editor = sharedPreferences.edit()
+        editor.putString("userName", userName)
+        editor.putString("password", password).apply()
     }
 
 }

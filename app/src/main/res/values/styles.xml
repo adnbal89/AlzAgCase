@@ -32,5 +32,4 @@
         <item name="android:drawablePadding">@dimen/action_button_padding</item>
     </style>
 
-
 </resources>

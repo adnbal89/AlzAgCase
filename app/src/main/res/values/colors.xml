@@ -21,4 +21,10 @@
     <color name="colorTextSecondary">#7f1a18</color>
 
     <color name="translucentBackground">#ED000000</color>
+
+    <color name="alzuraPrimary">#204494</color>
+    <color name="alzuraSecondary">#93b9f0</color>
+    <color name="alzuraAlternate">#eaf2f8</color>
+
+
 </resources>

@@ -8,4 +8,11 @@
     <string name="login">Login</string>
     <string name="loginError">Login error, please try again.</string>
     <string name="all_orders">All Orders</string>
+    <string name="all_available_orders">All Available Orders</string>
+    <string name="alzura_ag">Alzura Orders</string>
+    <string name="order_id">Order Id :</string>
+    <string name="operator_price">Operator Price :</string>
+    <string name="date">Date</string>
+    <string name="payment_method">Payment Method :</string>
+    <string name="total_operator_price">Total Operator Price (gross) :</string>
 </resources>

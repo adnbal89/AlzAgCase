@@ -15,6 +15,7 @@ import com.adnanbal.alzuracasestudy.feature.orders.OrdersActivity
 import com.adnanbal.alzuracasestudy.util.exhaustive
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
@@ -29,6 +30,7 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         val userName = binding.textViewUserName.editText?.text.toString()
         val password = binding.textViewPassword.editText?.text.toString()
 
@@ -39,17 +41,12 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-        lifecycleScope.launchWhenStarted {
+        lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.loginEventChannel.collect { status ->
                     binding.progressBar.isVisible = false
                     when (status) {
                         is LoginViewModel.LoginStatus.Success -> {
-                            Snackbar.make(
-                                binding.root,
-                                status.tokenData.toString(),
-                                Snackbar.LENGTH_LONG
-                            ).show()
                             val intent = Intent(this@LoginActivity, OrdersActivity::class.java)
                             startActivity(intent)
                         }

@@ -6,4 +6,5 @@
     <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="all_orders">All Orders</string>
+    <string name="all_available_orders">All Available Orders</string>
 </resources>
