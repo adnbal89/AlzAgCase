@@ -2,6 +2,7 @@ package com.adnanbal.alzuracasestudy.di
 
 import com.adnanbal.alzuracasestudy.api.AlzuraApiService
 import com.adnanbal.alzuracasestudy.api.ApiProvider
+import com.adnanbal.alzuracasestudy.util.LocalStorage
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,12 +16,8 @@ object ServiceModule {
 
     @Singleton
     @Provides
-    fun apiProvider(): ApiProvider =
-        ApiProvider(
-            endpoint = AlzuraApiService.BASE_URL,
-            username = AlzuraApiService.userName,
-            password = AlzuraApiService.password
-        )
+    fun provideApiProvider(localStorage: LocalStorage): ApiProvider =
+        ApiProvider(endpoint = AlzuraApiService.BASE_URL, localStorage)
 
     @Singleton
     @Provides

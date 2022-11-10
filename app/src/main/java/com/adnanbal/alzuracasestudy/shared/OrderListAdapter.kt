@@ -3,7 +3,7 @@ package com.adnanbal.alzuracasestudy.shared
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
-import com.adnanbal.alzuracasestudy.api.model.order.OrderData
+import com.adnanbal.alzuracasestudy.data.order.model.OrderData
 import com.adnanbal.alzuracasestudy.databinding.ItemOrderBinding
 
 class OrderListAdapter(
@@ -27,10 +27,8 @@ class OrderListAdapter(
     }
 
     override fun onBindViewHolder(holder: OrderViewHolder, position: Int) {
-        val item = getItem(position)
-        if (item != null) {
-            holder.bind(item)
+        getItem(position)?.let {
+            holder.bind(it)
         }
     }
-
 }

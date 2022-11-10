@@ -4,6 +4,6 @@
         <item name="android:actionButtonStyle">@style/ActionButton</item>
     </style>
 
-    <style name="Theme.AlzuraCaseStudy" parent="Base.Theme.AlzuraCaseStudy"></style>
+    <style name="Theme.AlzuraCaseStudy" parent="Base.Theme.AlzuraCaseStudy" />
 
 </resources>

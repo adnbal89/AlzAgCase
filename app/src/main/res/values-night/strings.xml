@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="logout">Logout</string>
-    <string name="sort">Sort</string>
+    <string name="sort">Sort by date</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="login">Login</string>

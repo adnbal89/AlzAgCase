@@ -1,4 +1,4 @@
-package com.adnanbal.alzuracasestudy.api.model.order
+package com.adnanbal.alzuracasestudy.data.order.model
 
 import com.squareup.moshi.Json
 

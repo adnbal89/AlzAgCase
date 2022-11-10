@@ -1,7 +1,10 @@
-package com.adnanbal.alzuracasestudy.api.model.order
+package com.adnanbal.alzuracasestudy.data.order.model
 
+import android.os.Parcelable
 import com.squareup.moshi.Json
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class OrderData(
     @Json(name = "id") val id: Int? = null,
     @Json(name = "created_at") val createdAt: String? = null,
@@ -12,4 +15,9 @@ data class OrderData(
     @Json(name = "sum_original_price") val sumOriginalPrice: Double? = null,
     @Json(name = "operator") val operator: Operator? = Operator(),
     @Json(name = "customer") val customer: Customer? = Customer()
-)
+) : Parcelable {
+    val totalOperatorGrossPriceAmount: Double
+        get() = operator?.prices?.map { prices ->
+            prices.gross ?: 0.0
+        }.orEmpty().sum()
+}
