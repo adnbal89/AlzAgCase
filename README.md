@@ -45,7 +45,7 @@ I also implemented the Navigator component which is a good use case to navigate 
 
 ## App Screens
 
-1. Splash Screen (SplashActivity and SplashModelView)
+- 1. Splash Screen (SplashActivity and SplashModelView)
 To welcome the user, I implemented the splash screen that consists of company logo with 2 seconds of delay to show splash screen.
 The SplashActivity checks :
 if user is already loggedIn then directs user to the orders page,
@@ -55,7 +55,7 @@ LoggedIn functionality is checked via LocalStorage class which is simply holds s
 If token is null or empty then user is not logged in.
 
 
-2. Login Screen (LoginActivity and LoginViewModel)
+- 2. Login Screen (LoginActivity and LoginViewModel)
 
 Simply includes user and password fields. 
 When Login Pressed: 
@@ -69,7 +69,7 @@ return token.data.token.apply {
 if Api does not send an exception, then LoginStatus.Succes(token) is sent to LiveData so activity observes that value and checks “status” and directs to MainActivity if token received, shows error snackbar otherwise.
 
 
-3. Main Screen (MainActivity : contains OrdersFragment and OrderDetailsFragment)
+- 3. Main Screen (MainActivity : contains OrdersFragment and OrderDetailsFragment)
 Has 2 Fragments and controls the fragment flow via navGraph.
 
 
