@@ -43,9 +43,10 @@ During the development of the project, I heavily used my previous projects and p
 I also implemented the Navigator component which is a good use case to navigate through activities. Here, ClearBackStack functionality is important because User may back to the previous screens like orders page after logging out etc. Clearing the back stack is a way of preventing the unwanted navigation between screens. 
 
 
+
 ## App Screens
 
-###Splash Screen (SplashActivity and SplashModelView)
+### 1) Splash Screen (SplashActivity and SplashModelView)
 To welcome the user, I implemented the splash screen that consists of company logo with 2 seconds of delay to show splash screen.
 The SplashActivity checks :
 If user is already loggedIn then directs user to the orders page,
@@ -55,7 +56,7 @@ LoggedIn functionality is checked via LocalStorage class which is simply holds s
 If token is null or empty then user is not logged in.
 
 
-### Login Screen (LoginActivity and LoginViewModel)
+### 2) Login Screen (LoginActivity and LoginViewModel)
 
 Simply includes user and password fields. 
 When Login Pressed: 
@@ -65,10 +66,12 @@ Inside doLogin() :  username and password credentials encodeded and Authorizatio
 If Api does not send an exception, then LoginStatus.Succes(token) is sent to LiveData so activity observes that value and checks “status” and directs to MainActivity if token received, shows error snackbar otherwise.
 
 
-### Main Screen (MainActivity : contains OrdersFragment and OrderDetailsFragment)
+### 3) Main Screen (MainActivity : contains OrdersFragment and OrderDetailsFragment)
+
 Has 2 Fragments and controls the fragment flow via navGraph.
 
-#### OrdersFragment
+
+#### 3.1) OrdersFragment
 This fragment send a request to OrderRepository to receive Orders List and show the data inside a recyclerView. Every recyclerview item is clickable, when clicked an item in the list,  OrderDetailsFragment is attached controlled via navigation component. The navigation also carries the relevant OrderData information (parcelable).
 	
 In retrofit, I assume that state=50 is the available orders so I added filter to state while requesting data from API. Also I receive order date as “updated_at” data and show it on the fragment.
@@ -83,7 +86,8 @@ Sort Button :
 Logout Button : 
 	Logs out from the app, clears the token info in the SharedPreferences “localStorage.token” to “null”.
 
-#### OrderDetailsFragment :
+
+#### 3.2) OrderDetailsFragment :
 	
 In this fragment, when an order item is clicked on the recyclerview in the OrdersFragment, then this fragment shows the relevant Order data with details. Unfortunately I couldn’t complete this fragment- time concerns- but still I wanted to implement the OrderDetailsFragment with minimum data. The data is received via navArgs carrying OrderData information sent by the OrderFragment.
 In this fragment, I also handled backPress button event by simply returning back to OrderFragment.
