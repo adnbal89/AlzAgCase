@@ -1,7 +1,7 @@
 # AlzAgCase
 Test Case Study
 
-#User Cases:
+## User Cases:
 
 1. If first run, User sees splash screen for 2 seconds and redirected to Login Screen.
 2. If already authenticated before, and user navigated back, Splash screen appears and user redirected to Order Fragment because auth is valid.
@@ -14,9 +14,7 @@ Test Case Study
 9. User presses back button on the details fragment and app shows Order Fragment.
 
 
-#3rd Party Libraries Used 
-
-Used 3rd Party Libraries:
+## 3rd Party Libraries Used 
 
 1. Hilt : Dependency Injection.
 2. Retrofit : get results from the API : http client.
@@ -24,12 +22,12 @@ Used 3rd Party Libraries:
 4. Okhttp: AuthInterceptor http client , injected in the retrofit.
 
 
-#Architecture Used
+## Architecture Used
 
 - Model View ViewModel (MVVM)
 
 
-# Implementation Steps
+## Implementation Steps
 
 At first, I read the API documentation and tried to understand the auth mechanism, request headers, orders api requests. It took about 2 to 3 hours of work because of my inexperience about auth and tokens, the authentication headers complicated my mind and done a heavy research.
 
@@ -46,7 +44,7 @@ During the development of the project, I heavily used my previous projects and p
 I also implemented the Navigator component which is a good use case to navigate through activities. Here, ClearBackStack functionality is important because User may back to the previous screens like orders page after logging out etc. Clearing the back stack is a way of preventing the unwanted navigation between screens. 
 
 
-# App Screens
+## App Screens
 
 - Splash Screen (SplashActivity and SplashModelView)
 - Login Screen (LoginActivity and LoginViewModel)
