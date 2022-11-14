@@ -46,9 +46,9 @@ I also implemented the Navigator component which is a good use case to navigate 
 
 ## App Screens
 
- Splash Screen (SplashActivity and SplashModelView)
+Splash Screen (SplashActivity and SplashModelView)
 To welcome the user, I implemented the splash screen that consists of company logo with 2 seconds of delay to show splash screen.
- The SplashActivity checks :
+The SplashActivity checks :
 if user is already loggedIn then directs user to the orders page,
 if user is not loggedIn then directs to LoginActivity.
 
@@ -71,18 +71,19 @@ if Api does not send an exception, then LoginStatus.Succes(token) is sent to Liv
 
 
 - Main Screen (MainActivity : contains OrdersFragment and OrderDetailsFragment)
-  Has 2 Fragments and controls the fragment flow via navGraph.
-  
- 1. OrdersFragment
+Has 2 Fragments and controls the fragment flow via navGraph.
+
+
+1. OrdersFragment
 	This fragment send a request to OrderRepository to receive Orders List and show the data inside a recyclerView. Every recyclerview item is clickable, when clicked an item in the list,  OrderDetailsFragment is attached controlled via navigation component. The navigation also carries the relevant OrderData information (parcelable).
-	OrdersFragment observes a LiveData which includes List<OrderData>
+	OrdersFragment observes a LiveData which includes List<OrderData> :
 		  val orderList: LiveData<List<OrderData>>	
 	orderList is received via 
 	ordersRepository.getAllOrders(sortByDesc) ,  default sort : DESC
 	
 in OrdersRepository : 
-fun getAllOrders(sortByDesc: Boolean): Flow<List<OrderData>> returns 
-  Flow (I just wanted to use Flow here), response is received via :
+
+  fun getAllOrders(sortByDesc: Boolean): Flow<List<OrderData>> returns Flow (I just wanted to use Flow here), response is received via :
 
 val response =    alzuraApiService.getOrderList(sort = if (sortByDesc) DATE_SORT_BY_DESC else DATE_SORT_BY_ASC)
   
@@ -90,6 +91,7 @@ Here, in retrofit, I assume that state=50 is the available orders so I added fil
   
 
 In AlzuraApiService : 
+	
 @Headers("Accept: $acceptHeader")
 @GET("operator/orders")
 suspend fun getOrderList(
@@ -101,15 +103,16 @@ suspend fun getOrderList(
   
 if the request is succesful, then API returns OrderResponse then “OrderResponse.data” is emitted to flow so the collectors can collect.
 Note: Unfortunately here I couldn’t handle the error case –no time left.
-
-	This fragment also  inflates a toolbar menu so the user can use Sort and Logout menu buttons.
+This fragment also  inflates a toolbar menu so the user can use Sort and Logout menu buttons.
+	
 Sort Button : 
 	It works as a toggle button. Each click it behaves as the opposite of the current sort .
 Logout Button : 
 	Logs out from the app, clears the token info in the SharedPreferences “localStorage.token” to “null”.
 
+	
 2. OrderDetailsFragment :
 	
-	In this fragment, when an order item is clicked on the recyclerview in the OrdersFragment, then this fragment shows the relevant Order data with details. Unfortunately I couldn’t complete this fragment- time concerns- but still I wanted to implement the OrderDetailsFragment with minimum data. The data is received via navArgs carrying OrderData information sent by the OrderFragment.
-	In this fragment, I also handled backPress button event by simply returning back to OrderFragment.
+In this fragment, when an order item is clicked on the recyclerview in the OrdersFragment, then this fragment shows the relevant Order data with details. Unfortunately I couldn’t complete this fragment- time concerns- but still I wanted to implement the OrderDetailsFragment with minimum data. The data is received via navArgs carrying OrderData information sent by the OrderFragment.
+In this fragment, I also handled backPress button event by simply returning back to OrderFragment.
 
