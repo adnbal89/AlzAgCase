@@ -73,7 +73,7 @@ if Api does not send an exception, then LoginStatus.Succes(token) is sent to Liv
 Has 2 Fragments and controls the fragment flow via navGraph.
 
 
-3.1. OrdersFragment
+  3.1. OrdersFragment
 	This fragment send a request to OrderRepository to receive Orders List and show the data inside a recyclerView. Every recyclerview item is clickable, when clicked an item in the list,  OrderDetailsFragment is attached controlled via navigation component. The navigation also carries the relevant OrderData information (parcelable).
 	OrdersFragment observes a LiveData which includes List<OrderData> :
 		  val orderList: LiveData<List<OrderData>>	
@@ -110,7 +110,7 @@ Logout Button :
 	Logs out from the app, clears the token info in the SharedPreferences “localStorage.token” to “null”.
 
 	
-3.2. OrderDetailsFragment :
+  3.2. OrderDetailsFragment :
 	
 In this fragment, when an order item is clicked on the recyclerview in the OrdersFragment, then this fragment shows the relevant Order data with details. Unfortunately I couldn’t complete this fragment- time concerns- but still I wanted to implement the OrderDetailsFragment with minimum data. The data is received via navArgs carrying OrderData information sent by the OrderFragment.
 In this fragment, I also handled backPress button event by simply returning back to OrderFragment.
