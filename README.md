@@ -1,5 +1,4 @@
-# AlzAgCase
-Test Case Study
+# Alzura AG Case Study
 
 ## User Cases:
 
