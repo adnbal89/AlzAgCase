@@ -46,7 +46,7 @@ I also implemented the Navigator component which is a good use case to navigate 
 
 ## App Screens
 
-Splash Screen (SplashActivity and SplashModelView)
+1. Splash Screen (SplashActivity and SplashModelView)
 To welcome the user, I implemented the splash screen that consists of company logo with 2 seconds of delay to show splash screen.
 The SplashActivity checks :
 if user is already loggedIn then directs user to the orders page,
@@ -56,7 +56,7 @@ LoggedIn functionality is checked via LocalStorage class which is simply holds s
 If token is null or empty then user is not logged in.
 
 
-- Login Screen (LoginActivity and LoginViewModel)
+2. Login Screen (LoginActivity and LoginViewModel)
 
 Simply includes user and password fields. 
 When Login Pressed: 
@@ -70,11 +70,11 @@ return token.data.token.apply {
 if Api does not send an exception, then LoginStatus.Succes(token) is sent to LiveData so activity observes that value and checks “status” and directs to MainActivity if token received, shows error snackbar otherwise.
 
 
-- Main Screen (MainActivity : contains OrdersFragment and OrderDetailsFragment)
+3. Main Screen (MainActivity : contains OrdersFragment and OrderDetailsFragment)
 Has 2 Fragments and controls the fragment flow via navGraph.
 
 
-1. OrdersFragment
+3.1. OrdersFragment
 	This fragment send a request to OrderRepository to receive Orders List and show the data inside a recyclerView. Every recyclerview item is clickable, when clicked an item in the list,  OrderDetailsFragment is attached controlled via navigation component. The navigation also carries the relevant OrderData information (parcelable).
 	OrdersFragment observes a LiveData which includes List<OrderData> :
 		  val orderList: LiveData<List<OrderData>>	
@@ -111,7 +111,7 @@ Logout Button :
 	Logs out from the app, clears the token info in the SharedPreferences “localStorage.token” to “null”.
 
 	
-2. OrderDetailsFragment :
+3.2. OrderDetailsFragment :
 	
 In this fragment, when an order item is clicked on the recyclerview in the OrdersFragment, then this fragment shows the relevant Order data with details. Unfortunately I couldn’t complete this fragment- time concerns- but still I wanted to implement the OrderDetailsFragment with minimum data. The data is received via navArgs carrying OrderData information sent by the OrderFragment.
 In this fragment, I also handled backPress button event by simply returning back to OrderFragment.
