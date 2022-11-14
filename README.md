@@ -1,6 +1,6 @@
 # Alzura AG Case Study
 
-## User Cases:
+## Use Cases:
 
 1. If first run, User sees splash screen for 2 seconds and redirected to Login Screen.
 2. If already authenticated before, and user navigated back, Splash screen appears and user redirected to Order Fragment because auth is valid.
