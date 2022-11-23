@@ -7,4 +7,9 @@
     <string name="login">Login</string>
     <string name="all_orders">All Orders</string>
     <string name="all_available_orders">All Available Orders</string>
+    <string name="created_at">Create Date :</string>
+    <string name="update_date">Update Date :</string>
+    <string name="customer_name">Customer Name :</string>
+    <string name="sum_original_price">Original Price (sum) :</string>
+    <string name="customer_id">Customer Id :</string>
 </resources>

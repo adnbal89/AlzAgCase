@@ -6,76 +6,173 @@
     android:layout_height="wrap_content"
     android:layout_margin="8dp">
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/text_view_order_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:gravity="center_vertical"
-        android:text="@string/order_id"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/alzuraSecondary"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/text_view_order_id_value"
-        android:layout_width="wrap_content"
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:gravity="center_vertical"
-        app:layout_constraintStart_toEndOf="@+id/text_view_order_id"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="123" />
-
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/text_view_date_value"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:gravity="center_vertical"
-        android:text="@string/date"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/text_view_operator_price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:gravity="center_vertical"
+        android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_view_order_id"
-        android:text="@string/total_operator_price" />
+        app:layout_constraintTop_toBottomOf="@+id/appbar">
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/text_view_operator_price_value"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:gravity="center_vertical"
-        app:layout_constraintBottom_toBottomOf="@+id/text_view_operator_price"
-        app:layout_constraintStart_toEndOf="@+id/text_view_operator_price"
-        app:layout_constraintTop_toTopOf="@+id/text_view_operator_price"
-        tools:text="15 EUR" />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_view_operator_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:gravity="center_vertical"
+            android:text="@string/total_operator_price"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/text_view_payment_method"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:gravity="center_vertical"
-        android:text="@string/payment_method"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_view_operator_price" />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_view_operator_price_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:gravity="center_vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/text_view_operator_price"
+            app:layout_constraintStart_toEndOf="@+id/text_view_operator_price"
+            app:layout_constraintTop_toTopOf="@+id/text_view_operator_price"
+            tools:text="15 EUR" />
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/text_view_payment_method_value"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:gravity="center_vertical"
-        app:layout_constraintBottom_toBottomOf="@+id/text_view_payment_method"
-        app:layout_constraintStart_toEndOf="@+id/text_view_payment_method"
-        app:layout_constraintTop_toTopOf="@+id/text_view_payment_method"
-        tools:text="CASH" />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_view_payment_method"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:gravity="center_vertical"
+            android:text="@string/payment_method"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_operator_price" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_view_payment_method_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:gravity="center_vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/text_view_payment_method"
+            app:layout_constraintStart_toEndOf="@+id/text_view_payment_method"
+            app:layout_constraintTop_toTopOf="@+id/text_view_payment_method"
+            tools:text="CASH" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_view_created_at"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:gravity="center_vertical"
+            android:text="@string/created_at"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_payment_method" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_view_created_at_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:gravity="center_vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/text_view_created_at"
+            app:layout_constraintStart_toEndOf="@+id/text_view_created_at"
+            app:layout_constraintTop_toTopOf="@+id/text_view_created_at"
+            tools:text="2022-10-10" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_view_updated_at"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:gravity="center_vertical"
+            android:text="@string/update_date"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_created_at" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_view_payment_updated_at_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:gravity="center_vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/text_view_updated_at"
+            app:layout_constraintStart_toEndOf="@+id/text_view_updated_at"
+            app:layout_constraintTop_toTopOf="@+id/text_view_updated_at"
+            tools:text="2022-10-10" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_view_customer_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:gravity="center_vertical"
+            android:text="@string/customer_id"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_payment_updated_at_value" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_view_customer_id_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:gravity="center_vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/text_view_customer_id"
+            app:layout_constraintStart_toEndOf="@+id/text_view_customer_id"
+            app:layout_constraintTop_toTopOf="@+id/text_view_customer_id"
+            tools:text="Adnan BAL" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_view_operator_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:gravity="center_vertical"
+            android:text="@string/operator_id"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_customer_id" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_view_operator_id_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:gravity="center_vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/text_view_operator_id"
+            app:layout_constraintStart_toEndOf="@+id/text_view_operator_id"
+            app:layout_constraintTop_toTopOf="@+id/text_view_operator_id"
+            tools:text="12345678" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_view_sum_original_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:gravity="center_vertical"
+            android:text="@string/sum_original_price"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_operator_id" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_view_sum_original_price_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:gravity="center_vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/text_view_sum_original_price"
+            app:layout_constraintStart_toEndOf="@+id/text_view_sum_original_price"
+            app:layout_constraintTop_toTopOf="@+id/text_view_sum_original_price"
+            tools:text="33.66" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

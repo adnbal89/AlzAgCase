@@ -15,4 +15,10 @@
     <string name="date">Date</string>
     <string name="payment_method">Payment Method :</string>
     <string name="total_operator_price">Total Operator Price (gross) :</string>
+    <string name="created_at">Create Date :</string>
+    <string name="update_date">Update Date :</string>
+    <string name="customer_name">Customer Name :</string>
+    <string name="operator_id">Operator Id :</string>
+    <string name="sum_original_price">Original Price (sum) :</string>
+    <string name="customer_id">Customer Id :</string>
 </resources>
